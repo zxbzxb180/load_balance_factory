@@ -1,4 +1,4 @@
-package main
+package proxy_server
 
 import (
 	"fmt"
@@ -6,6 +6,7 @@ import (
 	"net"
 	"net/http"
 	"strings"
+	"testing"
 )
 
 type Pxy struct{}
@@ -37,7 +38,7 @@ func (p *Pxy) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	res.Body.Close()
 }
 
-func main() {
+func TestProxy(t *testing.T) {
 	fmt.Println("Server on: 8080")
 	http.Handle("/", &Pxy{})
 	http.ListenAndServe("0.0.0.0:8080", nil)
