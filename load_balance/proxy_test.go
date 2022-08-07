@@ -1,4 +1,4 @@
-package proxy_server
+package load_balance
 
 import (
 	"fmt"
